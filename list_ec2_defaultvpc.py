@@ -1,6 +1,6 @@
 import boto3
 from botocore.exceptions import BotoCoreError, ClientError
-region = 'us-west-2'
+region = 'us-east-1'
 client = boto3.client('ec2', region_name = region)
 output = {}
 try:
