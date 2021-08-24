@@ -2,7 +2,7 @@ import boto3
 from botocore.exceptions import BotoCoreError, ClientError
 region = 'us-east-1'
 client = boto3.client('ec2', region_name = region)
-output = {}
+#output = {}
 try:
             
     response = client.describe_vpcs(Filters=[{'Name': 'isDefault', 'Values': ['true']}])
