@@ -17,10 +17,11 @@ try:
 
     for instance in vpc.instances.all():
         for tag in instance.tags:
-            if tag['Key'] == 'Name':  
-                print ("\t{0}\t\t {1}".format('Id', 'Instance_Name'))  
+            if instance.instance_type == 'm5.large':
+                if tag['Key'] == 'Name':  
+                    print ("\t{0}\t\t {1}".format('Id', 'Instance_Name'))  
                 
-                print (" {0}\t {1}".format(instance.id, tag['Value']))
+                    print (" {0}\t {1}".format(instance.id, tag['Value']))
 except ValueError as err:
     print(err.args )
          
