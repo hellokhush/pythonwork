@@ -14,13 +14,11 @@ try:
     ec2 = boto3.resource('ec2', region_name = region)       
     vpc = ec2.Vpc(vpc_id)
 #print(vpc)
-
+    print ("\t{0}\t\t {1}".format('Id', 'Instance_Name'))
     for instance in vpc.instances.all():
         for tag in instance.tags:
             if instance.instance_type == 'm5.large':
                 if tag['Key'] == 'Name':  
-                    print ("\t{0}\t\t {1}".format('Id', 'Instance_Name'))  
-                
                     print (" {0}\t {1}".format(instance.id, tag['Value']))
 except ValueError as err:
     print(err.args )
